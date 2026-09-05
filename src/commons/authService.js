@@ -8,8 +8,8 @@ class AuthService extends EventEmiter {
   isAuthenticated(to) {
     store.commit("moduleContext/updateTo", to);
     const context = store.state["moduleContext"];
-    if (context.Token) {
-      let expired = context.Context.tokenExpired;
+    if (context && context.Token) {
+      let expired = context.Context?.tokenExpired || context.Context?.token_expired;
       if (expired && Date.parse(expired) > Date.parse(new Date())) {
         return true;
       }

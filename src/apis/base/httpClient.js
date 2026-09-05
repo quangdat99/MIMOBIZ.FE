@@ -425,6 +425,14 @@ class AxiosHttpClient {
       }
     }
 
+    if (!headers['X-Tenant-Id']) {
+      const context = store.state['moduleContext'];
+      const tenant = context?.Context?.tenant_code || context?.Context?.tenant_id;
+      if (tenant) {
+        headers['X-Tenant-Id'] = tenant;
+      }
+    }
+
     // Content type
     headers['Content-Type'] = contenType;
 

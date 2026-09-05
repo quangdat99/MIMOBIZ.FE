@@ -41,10 +41,10 @@
               </div>
               <div class="main-information">
                 <div class="name">
-                  {{ context.checkerName }}
+                  {{ context?.full_name || context?.checkerName || "Người dùng" }}
                 </div>
                 <div class="email">
-                  {{ context.email }}
+                  {{ context?.tenant_name ? `${context?.email || context?.email_login || ''} (${context?.tenant_name})` : (context?.email || context?.email_login || '') }}
                 </div>
               </div>
             </div>

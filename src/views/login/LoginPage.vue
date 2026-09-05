@@ -86,36 +86,34 @@ export default {
         return;
       }
       // commonFn.mask();
-      if (proxy.model) {
         let res = await proxy.$store.dispatch("moduleContext/login", model);
-        if (res.statusCode == 200) {
-          let data = res.data.Context;
+        if (res && res.statusCode == 200) {
+          let data = res.data?.Context;
           let context = proxy.$store.state["moduleContext"];
-          if (context.Path && context.To?.meta?.role == data.role) {
+          if (context.Path && context.To?.meta?.role == data?.role) {
             proxy.$router.push(context.Path);
             proxy.$store.commit("moduleContext/updatePath", "");
           } else {
             proxy.$router.push("admin");
           }
-        } else if (res.statusCode == 207) {
-          proxy.$toast.error(res.userMessage);
+        } else if (res && res.statusCode == 207) {
+          proxy.$toast.error(res.userMessage || "Tài khoản không chính xác");
           setTimeout(() => {
-            proxy.$refs.account.$el.querySelector("input").focus();
+            proxy.$refs.account?.$el?.querySelector("input")?.focus();
           }, 100);
-        } else if (res.statusCode == 208) {
-          proxy.$toast.error(res.userMessage);
+        } else if (res && res.statusCode == 208) {
+          proxy.$toast.error(res.userMessage || "Mật khẩu không chính xác");
           setTimeout(() => {
-            proxy.$refs.password.$el.querySelector("input").focus();
+            proxy.$refs.password?.$el?.querySelector("input")?.focus();
           }, 100);
-        } else if (res.statusCode == 209) {
-          proxy.$toast.error(res.userMessage);
+        } else if (res && res.statusCode == 209) {
+          proxy.$toast.error(res.userMessage || "Tài khoản của bạn đã bị khóa hoặc không có quyền truy cập");
           setTimeout(() => {
-            proxy.$refs.password.$el.querySelector("input").focus();
+            proxy.$refs.password?.$el?.querySelector("input")?.focus();
           }, 100);
         } else {
-          proxy.$toast.error(`Đã xảy ra lỗi`);
+          proxy.$toast.error(res?.userMessage || "Đã xảy ra lỗi khi đăng nhập");
         }
-      }
       // commonFn.unmask();
     };
 

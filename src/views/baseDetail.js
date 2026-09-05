@@ -14,11 +14,12 @@ export default {
     const me = this;
     window.detail = me;
     me.addObserveControl();
-    me.roleAdd = me.RoleDetails.find(x => x.key === me.keyRole)?.add || false;
-    me.roleView = me.RoleDetails.find(x => x.key === me.keyRole)?.view || false;
-    me.roleEdit = me.RoleDetails.find(x => x.key === me.keyRole)?.edit || false;
-    me.roleDelete = me.RoleDetails.find(x => x.key === me.keyRole)?.delete || false;
-    me.roleExport = me.RoleDetails.find(x => x.key === me.keyRole)?.export || false;
+    const isSuperAdmin = me.IsSuperAdmin || me.Context?.is_super_admin || me.Context?.role === 1;
+    me.roleAdd = isSuperAdmin ? true : (me.RoleDetails?.find(x => x.key === me.keyRole)?.add || false);
+    me.roleView = isSuperAdmin ? true : (me.RoleDetails?.find(x => x.key === me.keyRole)?.view || false);
+    me.roleEdit = isSuperAdmin ? true : (me.RoleDetails?.find(x => x.key === me.keyRole)?.edit || false);
+    me.roleDelete = isSuperAdmin ? true : (me.RoleDetails?.find(x => x.key === me.keyRole)?.delete || false);
+    me.roleExport = isSuperAdmin ? true : (me.RoleDetails?.find(x => x.key === me.keyRole)?.export || false);
   },
   methods: {
     addObserveControl() {
@@ -143,6 +144,8 @@ export default {
   computed: {
     ...mapGetters({
       RoleDetails: "moduleContext/RoleDetails",
+      Context: "moduleContext/Context",
+      IsSuperAdmin: "moduleContext/IsSuperAdmin",
     }),
   },
 }
