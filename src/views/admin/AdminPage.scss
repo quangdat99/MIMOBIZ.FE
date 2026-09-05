@@ -1,0 +1,141 @@
+
+
+.admin-container {
+  width: 100%;
+  height: calc(100vh - 36px);
+
+  .header-admin {
+    display: flex;
+    align-items: center;
+    height: 65px;
+    width: 100%;
+    background-color: #F9FBFD;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.09);
+    overflow: hidden;
+
+    .header-left {
+      display: flex;
+      flex: 1;
+      padding-left: 20px;
+      align-items: center;
+      .title-admin {
+        font-size: 18px;
+        font-weight: bold;
+        margin-left: 20px;
+      }
+    }
+
+    .header-right {
+      overflow: hidden;
+
+      .information-admin {
+        cursor: pointer;
+        margin-left: auto;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: center;
+        padding: 0px 36px;
+        height: 65px;
+
+        img {
+          width: 36px;
+          height: 36px;
+          border-radius: 50%;
+        }
+
+        .main-information {
+          margin-left: 15px;
+
+          .name {
+            font-weight: $font-weight-bold;
+            font-size: 14px;
+            margin-bottom: 5px;
+          }
+
+          .email {
+            font-size: 13px;
+            color: #879bb9 !important;
+          }
+        }
+      }
+    }
+
+    .logo {
+      background-image: url("@/assets/images/logo.png");
+      height: 36px;
+      width: 36px;
+      background-size: 100% 100%;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+  }
+
+
+  .nav-bar {
+    min-width: 150px;
+    color: $white;
+
+    &.toggle-navbar {
+      min-width: 76px !important;
+    }
+
+    max-width: fit-content;
+    height: 100vh;
+    overflow: hidden;
+    position: fixed;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background-color: $black-2;
+
+    .information {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: center;
+      padding-left: 20px;
+      height: 65px;
+
+      img {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+      }
+
+      .main-information {
+        margin-left: 15px;
+
+        .name {
+          font-weight: $font-weight-bold;
+          font-size: 16px;
+          margin-bottom: 3px;
+        }
+
+        .email {
+          font-size: 12px;
+          color: #879bb9 !important;
+        }
+      }
+    }
+
+  }
+
+  .main-content-admin {
+    margin-bottom: 0px;
+    margin-left: 175px;
+    order: 3;
+    background-color: #ffffff;
+
+    &.toggle-navbar {
+      margin-left: 76px !important;
+    }
+
+    transition: all 0.3s ease;
+    height: 100%;
+
+    .container-page {
+      height: 100%;
+    }
+  }
+}

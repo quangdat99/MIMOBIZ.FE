@@ -1,0 +1,105 @@
+
+$box-size: 16px;
+
+.ms-radio {
+    position: relative;
+    display: inline-block;
+    line-height: 16px;
+}
+
+.ms-radio input {
+    position: absolute;
+    cursor: pointer;
+    width: $box-size;
+    height: $box-size;
+    margin: 0;
+    padding: 0;
+    opacity: 0;
+
+    &:not(:disabled):hover {
+        cursor: pointer;
+        border-color: $primary;
+    }
+}
+
+input:not(:disabled):hover {
+
+    ~.checkmark,
+    ~.ms-radio--text {
+        cursor: pointer;
+    }
+}
+
+.checkmark {
+    display: inline-block;
+    width: $box-size;
+    height: $box-size;
+    vertical-align: bottom;
+    position: relative;
+    color: $white;
+    text-align: center;
+    border-radius: 50px;
+    line-height: 13px;
+    border: 1px solid $secondary;
+    background-color: $white;
+
+    &:hover {
+        border: 1px solid $primary;
+    }
+
+    &:focus {
+        border: 1px solid $primary;
+    }
+}
+
+input {
+
+    &:active,
+    &:hover,
+    &:focus {
+        border-color: $primary;
+    }
+}
+
+input:checked~.checkmark {
+    border-color: $primary;
+
+    &::before {
+        content: '';
+        display: inline-block;
+        height: 8px;
+        width: 8px;
+        border-radius: 50%;
+        background-color: $primary;
+    }
+}
+
+input:not(:disabled):focus~.checkmark {
+    outline: none;
+
+    &::after {
+        content: '';
+        height: 22px;
+        width: 22px;
+        position: absolute;
+        border: 3px solid #e2f2ff;
+        display: block;
+        border-radius: 50%;
+        top: -4px;
+        right: -4px;
+    }
+}
+
+input:disabled~.checkmark {
+    opacity: 0.6;
+    border-color: $secondary;
+}
+
+input:disabled~.checkmark::before {
+    background-color: $secondary;
+}
+
+.ms-radio--text {
+    padding-left: 6px;
+    display: inline-block;
+}

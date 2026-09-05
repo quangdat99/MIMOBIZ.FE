@@ -1,0 +1,52 @@
+
+
+.base-input{
+    padding: 0;
+    input{
+        background-color: $white;
+    }
+    .icon-input{
+        position: absolute;
+        right: 5px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+}
+.icon{
+    &.left{
+        margin-right: 5px;
+    }
+    cursor: pointer;
+}
+
+.base-input-item{
+    border: none;
+    padding: 4px 4px;
+    background: transparent;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    height: $input-height;
+    border-radius: $input-border-radius;
+    &:focus{
+        outline: none;
+    }
+}
+.has-right-icon{
+    padding-right: 40px;
+}
+.has-left-icon{
+    padding-left: 16px;
+}
+input{
+    &.has-border{
+        border: 1px solid #C9C9C9;
+        border-radius: 3px;
+    }
+    &.disabled {
+        background-color: $input-disabled-bg;
+    }
+}
+.error-icon{
+    margin: 5px 6px 0 0;
+}

@@ -1,0 +1,122 @@
+
+
+button.btn {
+    height: $height-control;
+    padding: 0px 15px;
+}
+
+button.text {
+    font-weight: bold;
+}
+
+button {
+    outline: none;
+}
+
+.base-button {
+    transition: all 0.2s ease;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.btn-border-none {
+    border: none;
+}
+
+.btn-opacity {
+    &:hover {
+        opacity: 1;
+    }
+
+    &:focus {
+        opacity: 1;
+    }
+
+    &:focus-within {
+        opacity: 1;
+    }
+}
+
+.disabled-btn {
+    opacity: 0.9;
+    cursor: unset;
+
+    &:hover {
+        background-color: transparent;
+    }
+}
+
+.primary {
+    transition: all 0.35s;
+    cursor: pointer;
+    text-transform: inherit;
+    font-weight: 500;
+    border-radius: 4px;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $primary;
+    color: $white !important;
+    overflow: hidden;
+
+    &:active {
+        color: $white;
+        background-color: $primary;
+    }
+}
+
+.white {
+    transition: all 0.35s;
+    cursor: pointer;
+    text-transform: inherit;
+    font-weight: 500;
+    border-radius: 2px;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $white;
+    color: $black;
+    overflow: hidden;
+    border: 1px solid rgba(0, 0, 0, .09);
+
+    &:hover {
+        color: $primary;
+    }
+
+    &.active {
+        color: $white;
+        background-color: $primary;
+    }
+}
+
+.transparent {
+    transition: all 0.35s;
+    cursor: pointer;
+    text-transform: inherit;
+    font-weight: 500;
+    border-radius: 4px;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    color: $black;
+    overflow: hidden;
+
+    &:hover {
+        color: $primary;
+    }
+
+    &.active {
+        color: $white;
+        background-color: $primary;
+    }
+}
+
+.disabled-icon {
+    pointer-events: none;
+    opacity: 0.4;
+}

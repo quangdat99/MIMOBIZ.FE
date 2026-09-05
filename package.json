@@ -1,0 +1,89 @@
+{
+  "name": "mimobiz-web",
+  "version": "0.1.0",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "vite",
+    "serve": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint": "eslint --ext .js,.vue src"
+  },
+  "dependencies": {
+    "@chenfengyuan/vue-number-input": "^2.0.1",
+    "@ckeditor/ckeditor5-build-classic": "^35.4.0",
+    "@ckeditor/ckeditor5-vue": "^4.0.1",
+    "@egjs/flicking-plugins": "^4.4.0",
+    "@egjs/vue3-flicking": "^4.9.1",
+    "@meforma/vue-toaster": "^1.3.0",
+    "@vuepic/vue-datepicker": "^3.6.8",
+    "autonumeric": "^4.6.0",
+    "axios": "^0.27.2",
+    "core-js": "^3.8.3",
+    "floating-vue": "^2.0.0-beta.17",
+    "imask": "^6.4.3",
+    "jwt-decode": "^3.1.2",
+    "moment": "^2.29.4",
+    "primeicons": "^5.0.0",
+    "primevue": "^3.18.1",
+    "tiny-emitter": "^2.1.0",
+    "v-tooltip": "^2.1.3",
+    "vue": "^3.2.37",
+    "vue-content-loader": "^2.0.1",
+    "vue-final-modal": "^3.4.11",
+    "vue-i18n": "^9.2.0",
+    "vue-imask": "^6.4.3",
+    "vue-router": "^4.0.13",
+    "vue3-easy-data-table": "^1.5.24",
+    "vue3-promise-dialog": "^0.3.4",
+    "vuex": "^4.0.2",
+    "vuex-persistedstate": "^4.1.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.16",
+    "@babel/eslint-parser": "^7.12.16",
+    "@vitejs/plugin-vue": "^6.0.8",
+    "esbuild": "^0.28.2",
+    "eslint": "^7.32.0",
+    "eslint-plugin-vue": "^8.0.3",
+    "sass": "^1.54.0",
+    "vite": "^8.2.2"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/vue3-essential",
+      "eslint:recommended"
+    ],
+    "parserOptions": {
+      "parser": "@babel/eslint-parser",
+      "requireConfigFile": false
+    },
+    "rules": {
+      "no-unused-vars": "off",
+      "no-const-assign": "off",
+      "no-undef": "off",
+      "no-useless-escape": "off",
+      "no-multiple-template-root": "off",
+      "vue/multi-word-component-names": "off",
+      "vue/no-dupe-keys": "off",
+      "no-case-declarations": "off",
+      "vue/no-unused-components": "off",
+      "no-prototype-builtins": "off",
+      "vue/require-valid-default-prop": "off",
+      "no-debugger": "off",
+      "vue/no-ref-as-operand": "off",
+      "no-dupe-keys": "off"
+    }
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead",
+    "not ie 11"
+  ]
+}

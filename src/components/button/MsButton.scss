@@ -1,0 +1,110 @@
+
+button.btn {
+  padding: 0;
+}
+
+button.text {
+  font-weight: bold;
+}
+
+:deep(.split-icon.active) {
+  background-color: #118044;
+
+  border-radius: 4px;
+  overflow: hidden;
+  height: 100%;
+}
+
+.white :deep(.split-icon.active) {
+  background-color: #e0e0e0;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+button {
+  outline: none !important;
+}
+
+.ms-button {
+  transition: all 0.2s ease;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+
+.btn-border-none {
+  border: none !important;
+}
+
+.btn-footer-helpful {
+  margin: 0 7px;
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    border-radius: 2px;
+  }
+
+  &:focus-within {
+    &::before {
+      opacity: 1;
+    }
+
+    background-color: #d4d7dc;
+    opacity: 0.2;
+
+    .widget-more.footer:before {
+      background-position: -433px -74px !important;
+    }
+
+    .widget-more-small.footer:before {
+      background-position: -433px -74px !important;
+    }
+
+    .widget-more-small-border.footer:before {
+      background-position: -433px -74px !important;
+    }
+  }
+}
+
+
+
+.disabled-btn {
+  opacity: 0.9 !important;
+  cursor: unset !important;
+
+  &:hover {
+    background-color: transparent !important;
+  }
+}
+
+.heightoptionvaluel-border {
+  height: $input-height-custom-small !important;
+  font-size: $font-size-custom-small !important;
+  min-height: $input-height-custom-small !important;
+}
+
+.heightoptionvaluel {
+  height: $input-height-custom-small-no-border !important;
+  font-size: $font-size-custom-small !important;
+  min-height: $input-height-custom-small-no-border !important;
+  overflow: hidden;
+}
+
+.heightoptionvalue2-border {
+  height: $input-height-custom-big !important;
+  font-size: $font-size-custom-big !important;
+  min-height: $input-height-custom-big !important;
+}
+
+.heightoptionvalue2 {
+  height: $input-height-custom-big-no-border !important;
+  font-size: $font-size-custom-big !important;
+  min-height: $input-height-custom-big-no-border !important;
+}

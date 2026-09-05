@@ -1,0 +1,135 @@
+$border-radius: 4px;
+
+.msg-box {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 9999;
+}
+
+.msg-center {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  box-shadow: 0 3px 20px rgba(0, 0, 0, 0.08);
+  border-radius: $border-radius;
+}
+
+.msg-title {
+  font-size: 18px;
+  font-weight: $font-weight-bold;
+  padding: 20px 20px 0 20px;
+}
+
+.msg-close {
+  position: absolute !important;
+  top: 10px;
+  right: 10px;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.msg-question {
+  position: absolute !important;
+  top: 10px;
+  right: 40px;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.msg-message {
+  margin: 0 20px 20px 20px;
+  max-height: 300px;
+  overflow: auto;
+}
+
+.msg-item {
+  margin-top: 15px;
+  font-size: 13px;
+}
+
+.msg-buttons {
+  background-color: #f5f5f5;
+  padding: 10px 20px;
+  border-top: 1px solid #d9d9d9;
+  border-radius: 0 0 $border-radius $border-radius;
+}
+
+.height-check-box {
+  height: 24px !important;
+  overflow: hidden;
+}
+
+.msg-btn {
+  &:not(:first-child) {
+    margin-right: 10px;
+  }
+}
+
+:deep(.color-green) {
+  color: $primary;
+  font-weight: 600;
+}
+
+:deep(.color-blue) {
+  color: $blue;
+  font-weight: 600;
+}
+
+:deep(.text-link) {
+  color: $blue;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.color-error {
+  color: $color-error;
+  font-weight: 600;
+}
+
+a {
+  cursor: pointer;
+}
+
+.hr-row {
+  width: 100%;
+  border-bottom: 1.5px solid #d4d7dc;
+  margin-bottom: 10px;
+}
+
+:deep(.ms-checkbox) {
+  input {
+    margin-left: 0px;
+  }
+}
+
+.heightoptionvalue1-border {
+  height: $input-height-custom-small;
+  font-size: $font-size-custom-small !important;
+  min-height: $input-height-custom-small !important;
+}
+
+.heightoptionvalue1 {
+  height: $input-height-custom-small-no-border;
+  font-size: $font-size-custom-small !important;
+  min-height: $input-height-custom-small-no-border !important;
+}
+
+.heightoptionvalue2-border {
+  height: $input-height-custom-big;
+  font-size: $font-size-custom-big !important;
+  min-height: $input-height-custom-big !important;
+}
+
+.heightoptionvalue2 {
+  height: $input-height-custom-big-no-border;
+  font-size: $font-size-custom-big !important;
+  min-height: $input-height-custom-big-no-border !important;
+}

@@ -1,0 +1,35 @@
+
+
+.menu-wrapper-item {
+
+  &.disabled {
+    pointer-events: none;
+    opacity: 0.2;
+  }
+
+  &.menu-border {
+    border-bottom: 1px solid #dadada;
+  }
+
+  &.menu-wrapper-item-icon {
+    padding: 0 16px 0 6px !important;
+    white-space: nowrap;
+  }
+
+  .menu-item-ic {
+    margin-right: 8px;
+  }
+
+  &.disabled-item {
+    pointer-events: none;
+    color: #afafaf;
+  }
+
+  &.invisiable-item {
+    display: none;
+  }
+
+  &.hide-visiable {
+    display: none;
+  }
+}

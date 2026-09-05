@@ -1,0 +1,53 @@
+.base-list-manage {
+  height: 100%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+
+  .toolbar {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+
+    .toolbar-left {
+      flex: 1;
+      display: flex;
+      align-items: center;
+
+      .toolbar-title {
+        font-size: 16px;
+        font-weight: bold;
+        color: $black-3;
+      }
+
+      .toolbar-filter {
+        display: flex;
+        align-items: center;
+      }
+    }
+
+    .toolbar-right {
+      // flex: 1;
+      display: flex;
+      align-items: center;
+      flex-direction: row;
+      justify-content: flex-end;
+    }
+  }
+
+  .ck-editor {
+    width: 100%;
+  }
+
+  .container-grid {
+    flex: 1;
+    overflow: hidden;
+    margin-bottom: 30px;
+  }
+
+}
+
+.option:hover {
+  background-color: #E9EBEE;
+  color: $primary;
+}

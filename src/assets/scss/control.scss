@@ -1,0 +1,68 @@
+.row-action {
+    .row-group {
+        margin-right: 10px;
+    }
+}
+
+.timesheet-cart-list {
+    margin: 15px 0 0 0;
+
+    .timesheet-list-content {
+        max-height: 400px;
+        overflow: auto;
+        padding: 0 15px 0px 15px;
+    }
+
+    .timesheet-detail-content {
+        font-size: 13px;
+        margin-bottom: 5px;
+        justify-content: flex-end;
+        min-height: 50px;
+
+        .timesheet-detail-content-img {
+            img {
+                height: 50px;
+                width: 50px;
+            }
+        }
+
+        .timesheet-detail-content-main {
+            color: #333333;
+
+            div {
+                margin-bottom: 5px;
+            }
+
+            .timesheet-detail-content-main-name {
+                text-overflow: ellipsis;
+                -webkit-line-clamp: 2;
+                -webkit-box-orient: vertical;
+                display: -webkit-box;
+                overflow: hidden;
+            }
+        }
+
+        .timesheet-detail-content-price {
+            color: #c20000;
+        }
+
+    }
+
+    border-bottom: 1px solid #d9d9d9;
+}
+
+.timesheet-cart-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.timesheet-cart-summary {
+    padding: 15px;
+    font-size: 13px;
+}
+
+.timesheet-cart-action {
+    padding: 10px 15px;
+}

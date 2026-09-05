@@ -1,0 +1,384 @@
+$calendar-header-bg: #ebebeb;
+$calendar-border-radius: 3.5px;
+
+.item {
+  border-radius: $calendar-border-radius;
+
+  &:hover {
+    // background: $hover-bg;
+    background:
+      #e2f2ff;
+  }
+
+  &.selected {
+    background: $primary;
+    color: $white;
+  }
+}
+
+.calendar-container {
+  padding: 12px 13px 7px 12px;
+}
+
+.separate-line-header {
+  position: relative;
+  height: 1px;
+  width: 263px;
+  top: 35px;
+  left: 20px;
+}
+
+.calendar-table {
+  th {
+    font-weight: $font-weight-bold;
+  }
+}
+
+.calendar-header {
+  position: relative;
+}
+
+.icon-calendar-header {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  border-radius: $calendar-border-radius;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    background: transparent url($image-sprite) no-repeat;
+    height: 24px;
+    width: 24px;
+    top: 5px;
+    // left: 10px;
+  }
+
+  &.left::before {
+    background-position: -360px -24px;
+  }
+
+  &.right::before {
+    background-position: -360px -48px;
+    left: 12px;
+  }
+}
+
+.icon-calendar-down {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  border-radius: $calendar-border-radius;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    background: transparent url($image-sprite) no-repeat;
+    height: 16px;
+    width: 12px;
+    top: 10px;
+    left: 10px;
+    background-position: -31px -52px
+  }
+}
+
+.calender-current-date {
+  display: flex;
+  color: #212121;
+  cursor: pointer;
+  line-height: 35px;
+  margin: 0 13px;
+  border-radius: $calendar-border-radius;
+
+  .selected-year {
+    font-weight: 600;
+  }
+
+}
+
+.calendar-body {
+  color: $black;
+  border-bottom: 1px solid $secondary;
+}
+
+.calendar-body .calendar-table {
+  width: 100%;
+}
+
+.calendar-body .calendar-table thead tr th,
+td {
+  width: 34px;
+  height: 34px;
+  padding: 0;
+}
+
+.calendar-body .calendar-table thead tr th {
+  color: $grey-light;
+}
+
+.calendar-body .calendar-table .date-in-month {
+  text-align: center;
+}
+
+.calendar-body .calendar-table .date-in-month tr {
+  box-sizing: border-box;
+}
+
+.calendar-body .calendar-table .date-in-month tr .date-in-table:hover {
+  cursor: pointer;
+  transition: ease-in-out 0.15;
+}
+
+.calendar-body .separate-line {
+  border: none;
+  height: 1px;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.calendar-footer {
+  text-align: center;
+  padding-top: 7px;
+}
+
+.calendar-footer .pick-today-button {
+  display: block;
+  border: none;
+  background: $white;
+  color: $blue;
+  font-size: $font-size;
+  cursor: pointer;
+  line-height: 33px;
+  text-align: center;
+  width: 100%;
+  border-radius: $calendar-border-radius;
+  outline: none;
+}
+
+.calendar-container {
+
+  z-index: 109;
+  background: $white;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.24);
+  border-radius: 4px;
+
+  .valid {
+    background-color: forestgreen;
+  }
+
+  .default {
+    color: $white;
+  }
+
+  .warn {
+    background-color: mistyrose;
+    color: $black;
+  }
+
+  @keyframes demo {
+    0% {
+      transform: scale(0);
+    }
+
+    50% {
+      transform: scale(1.4);
+    }
+
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  .radio-button {
+    position: relative;
+  }
+
+
+  input::placeholder {
+    color: red;
+    font-style: italic;
+  }
+
+  .calendar-year-select {
+    top: 17%;
+    left: 10px;
+    display: flex;
+    height: 65%;
+    width: 100%;
+    background: $white;
+    transition: transform 0.25 ease-in,
+      opacity 0.35 cubic-bezier(0, 0, 0.31,
+        1);
+    animation: expand 0.25;
+    cursor: pointer;
+    border-bottom: 1px solid #c1c4cc;
+  }
+
+
+  .calendar-year-select table {
+    width: 100%;
+    // height: 60%;
+    color: $black;
+    font-weight: $font-weight-bold;
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+
+
+  .calendar-year-select .cancel-button {
+    background: none;
+    border: none;
+    color: $black;
+    font-weight: $font-weight-bold;
+    cursor: pointer;
+    position: absolute;
+    bottom: 10%;
+    left: 40%;
+    outline: none;
+  }
+
+
+  .calendar-month-select {
+    top: 17%;
+    left: 10px;
+    display: flex;
+    height: 65%;
+    width: 100%;
+    background: $white;
+    transition: transform 0.25 ease-in,
+      opacity 0.35 cubic-bezier(0, 0, 0.31, 1);
+    animation: expand 0.2s;
+    cursor: pointer;
+    border-bottom: 1px solid #c1c4cc;
+  }
+
+  .calendar-month-select table {
+    width: 100%; // height: 60%; color: $black;
+
+    font-weight: $font-weight-bold;
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+
+  .calendar-month-select .cancel-button {
+    background: none;
+    border: none;
+    color: $black;
+    font-weight: $font-weight-bold;
+    cursor: pointer;
+    position: absolute;
+    bottom: 10%;
+    left: 40%;
+    outline: none;
+  }
+
+  .calendar-month-select {
+    .calendar-table-month {
+
+      thead tr th,
+      td {
+        width: 85px;
+      }
+    }
+  }
+
+  .day-select {
+    // margin-bottom: 6px;
+  }
+
+  .icon-year-active {
+    transform: rotate(-90deg);
+  }
+
+
+  @keyframes expand {
+    0% {
+      opacity: 0;
+      top: 0;
+      border-radius: 50%;
+    }
+
+    50% {
+      opacity: 0.2;
+      top: 6%;
+    }
+
+    100% {
+      opacity: 1;
+      top: 12%;
+      border-radius: 0;
+    }
+  }
+
+  .slide-fade-enter-active {
+    transition: all 0.3s ease;
+  }
+
+  .slide-fade-leave-active {
+    transition: all 0.8 cubic-bezier(1, 0.5, 0.8, 1);
+  }
+
+  .slide-fade-enter,
+  .slide-fade-leave-to {
+    transform: translateY(10px);
+  }
+
+  .ms-date {
+    &.diff-month {
+      color: $grey-light;
+    }
+  }
+
+  .ms-date-current {
+    border-radius: 50%;
+    color: $white;
+    background-color: $primary;
+
+    &.diff-month {
+      background-color: unset;
+    }
+  }
+
+  .ms-datepicker-year,
+  .ms-datepicker-month {
+    padding: 9px 0 10px 0;
+    text-align: center;
+
+    &.item {
+      font-weight: 400;
+      font-size: 13px;
+      margin: 0px 5px;
+    }
+  }
+
+  .input-time {
+    width: 40px;
+    height: 24px;
+  }
+
+  .time {
+    display: flex;
+    padding: 6px 20px;
+  }
+
+  .mr-12-px {
+    margin-right: 12px;
+  }
+
+  .mr-6-px {
+    margin-right: 6px;
+  }
+
+  .m1-6-px {
+    margin-left: 6px;
+  }
+
+}
+
+.disabled {
+  opacity: 0.7;
+  pointer-events: none;
+}

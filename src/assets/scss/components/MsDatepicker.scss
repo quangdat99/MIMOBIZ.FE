@@ -1,0 +1,172 @@
+.ms-datepicker {
+  position: relative;
+  background: transparent;
+
+  .combo-title {
+    padding-bottom: 8px;
+  }
+
+  .ms-container--datepicker {
+    background: $white;
+  }
+
+  .ms-input--datepicker {
+    height: $input-height;
+    border: none;
+    width: 100%;
+    outline: none;
+    box-shadow: none;
+    padding: 0 0 0 6px;
+  }
+
+  .heightoptionvalue1-border {
+    height: $input-height-custom-small !important;
+    font-size: $font-size-custom-small !important;
+  }
+
+  .heightoptionvalue1 {
+    height: $input-height-custom-small-no-border !important;
+    font-size: $font-size-custom-small !important;
+  }
+
+  .heightoptionvalue2-border {
+    height: $input-height-custom-big !important;
+    font-size: $font-size-custom-big !important;
+  }
+
+  .heightoptionvalue2 {
+    height: $input-height-custom-big-no-border !important;
+    font-size: $font-size-custom-big !important;
+  }
+}
+
+.ms-calendar {
+  width: $input-height;
+  position: relative;
+  cursor: pointer;
+  border-radius: 10px;
+
+  &::before {
+    content: '';
+    position: absolute;
+    background: transparent url($image-sprite) no-repeat -360px 0px;
+    height: $input-height;
+    width: $input-height;
+    left: 0;
+    top: 0;
+  }
+
+  &.disabled:before {
+    display: none !important;
+  }
+}
+
+.m5-calendar-filter-grid {
+  width: 24px;
+  position: relative;
+  cursor: pointer;
+  border-radius: 10px;
+
+  &::before {
+    content: '';
+    position: absolute;
+    background: transparent url($image-sprite) no-repeat -24px -48px;
+    height: 24px;
+    width: 24px;
+    left: 0;
+    top: 0;
+  }
+
+  &.disabled:before {
+    display: none !important;
+  }
+}
+
+.ms-calendar-small {
+  width: $input-height-custom-small-no-border;
+  position: relative;
+  cursor: pointer;
+  border-radius: 10px;
+
+  &::before {
+    content: '';
+    position: absolute;
+    background: transparent url($image-sprite) no-repeat -24px -48px;
+    ;
+    height: $input-height-custom-small-no-border;
+    width: $input-height-custom-small-no-border;
+    left: 0;
+    top: 0;
+  }
+
+  &.disabled:before {
+    display: none !important;
+  }
+}
+
+.ms-calendar-small-filter-grid {
+  width: 20px;
+  position: relative;
+  cursor: pointer;
+  border-radius: 10px;
+
+  &::before {
+    content: '';
+    position: absolute;
+    background: transparent url($image-sprite) no-repeat -24px -48px;
+    height: 20px;
+    width: 20px;
+    left: 0;
+    top: 0;
+  }
+
+  &.disabled:before {
+    display: none !important;
+  }
+}
+
+.disabled,
+:disabled {
+  background-color: $input-disabled-bg;
+}
+
+.datepicker-content {
+  position: absolute;
+  z-index: 10000;
+  background-color: #fff;
+}
+
+.ms-datepicker {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  border-radius: 4px;
+  box-sizing: content-box;
+  // font-family: SFProDisplay,Roboto,Helvetica,Arial,sans-serif;  
+  font-size: 13px;
+  position: relative;
+  left: unset;
+  opacity: 100;
+  transition: opacity 0.3s ease, left 05 0.3s, -webkit-transform 0.3s ease;
+  transition: opacity 0.3s ease, transform 0.3s ease, left 0s 0.3s;
+  transition: opacity 0.3s ease, transform 0.3s ease, left 0s 0.35,
+    -webkit-transform 0.3s ease;
+
+  &:hover {
+    .ms-calendar.disabled {
+      &::before {
+        display: none;
+      }
+    }
+  }
+
+  .ms-calendar {
+    &::before {
+      display: block;
+    }
+  }
+}
+
+.datepicker {
+  opacity: 100;
+}

@@ -1,0 +1,149 @@
+.flex-column{
+    display: -webkit-flex;
+    display: flex;
+    flex-direction: column;
+}
+
+.flex-row{
+    display: -webkit-flex;
+    display: flex;
+    flex-direction: row;
+}
+
+.flex-center{
+    display: -webkit-flex;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.flex-al-center{
+    display: -webkit-flex;
+    display: flex;
+    align-items: center;
+}
+.flex-jt-center{
+    display: -webkit-flex;
+    display: flex;
+    justify-content: center;
+}
+.flex-rtl{
+    display: -webkit-flex;
+    display: flex;
+    flex-direction: rtl;
+    direction: rtl;
+    justify-content: flex-end;
+}
+
+.flex-ltr{
+    display: -webkit-flex;
+    display: flex;
+    flex-direction: ltr;
+    direction: ltr;
+    justify-content: flex-start;
+}
+
+.flex-between{
+    display: -webkit-flex;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.flex-end{
+    display: -webkit-flex;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+.flex,.flex1{
+    -webkit-flex: 1;
+    flex : 1;
+    min-height: 0;
+    min-width: 0; 
+}
+
+.flex2{
+    -webkit-flex: 2;
+    flex: 2;
+}
+.flex3{
+    -webkit-flex: 3;
+    flex: 3;
+}
+.flex4{
+    -webkit-flex: 4;
+    flex: 4;
+}
+.flex5{
+    -webkit-flex: 5;
+    flex: 5;
+}
+.flex6{
+    -webkit-flex: 6;
+    flex: 6;
+}
+.flex7{
+    -webkit-flex: 7;
+    flex: 7;
+}
+.flex8{
+    -webkit-flex: 8;
+    flex: 8;
+}
+.flex9{
+    -webkit-flex: 9;
+    flex: 9;
+}
+.flex10{
+    -webkit-flex: 10;
+    flex: 10;
+}
+.flex11{
+    -webkit-flex: 11;
+    flex: 11;
+}
+.flex12{
+    -webkit-flex: 12;
+    flex: 12;
+}
+.flex13{
+    -webkit-flex: 13;
+    flex: 13;
+}
+.flex14{
+    -webkit-flex: 14;
+    flex: 14;
+}
+.flex15{
+    -webkit-flex: 15;
+    flex: 15;
+}
+.flex16{
+    -webkit-flex: 16;
+    flex: 16;
+}
+.flex17{
+    -webkit-flex: 17;
+    flex: 17;
+}
+.flex18{
+    -webkit-flex: 18;
+    flex: 18;
+}
+.flex19{
+    -webkit-flex: 19;
+    flex: 19;
+}
+.flex20{
+    -webkit-flex: 20;
+    flex: 20;
+}
+
+.flex-bs-33{
+    flex-basis: 33.33333px;
+}
+.flex-bs-16{
+    flex-basis: 16.66667px;
+}

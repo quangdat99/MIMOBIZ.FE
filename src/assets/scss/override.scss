@@ -1,0 +1,208 @@
+.agile__nav-button {
+    background: unset;
+    outline: none !important;
+    border: none !important;
+}
+
+.agile {
+    display: block;
+    object-fit: cover;
+    width: 100%;
+
+    &__nav-button {
+        border: none;
+        cursor: pointer;
+        height: 100%;
+        transition-duration: .3s;
+
+        &:hover {
+            background-color: rgba(rgb(245, 184, 184), .5);
+            opacity: 1;
+        }
+
+        &--next {
+            position: absolute;
+            right: 0;
+        }
+    }
+
+    &__dots {
+        left: 50%;
+        position: absolute;
+        transform: translateX(-50%);
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    &__dot {
+        margin: 0 7px;
+
+        button {
+            background-color: transparent;
+            border: 1px solid #c20000;
+            border-radius: 50%;
+            cursor: pointer;
+            display: block;
+            height: 10px;
+            font-size: 0;
+            line-height: 0;
+            margin: 0;
+            padding: 0;
+            transition-duration: .3s;
+            width: 10px;
+        }
+
+        &--current,
+        &:hover {
+            button {
+                background-color: #c20000;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 414px) {
+    .agile {
+        &__dots {
+            display: none;
+        }
+
+        &__nav-button {
+            display: none;
+        }
+    }
+}
+
+
+.vue-number-input__input {
+
+    &:hover,
+    &:focus,
+    &:active {
+        border-color: #c20000 !important;
+        outline: none !important;
+    }
+
+    text-align: center;
+}
+
+.vue-number-input__button {
+
+    &:hover:before,
+    &:hover:after {
+        background-color: #c20000 !important;
+    }
+}
+
+.vue-number-input--small.vue-number-input--inline>input {
+    width: 6.5rem !important;
+}
+
+h2,
+h3 {
+    font-size: 16px;
+    font-family: Roboto, sans-serif;
+    font-weight: 600;
+    margin: 0px;
+}
+
+
+
+.p-dialog-footer {
+    .p-button {
+        &.p-button-text {
+            color: #333333;
+        }
+
+        &.p-confirm-dialog-reject {
+            &:hover {
+                color: #c20000 !important;
+            }
+        }
+
+        &.p-confirm-dialog-accept {
+            outline: none !important;
+            background-color: #c20000;
+            border-color: #c20000;
+            padding: 4px;
+            // &:hover,&:active{
+            //     background-color: #c20000 !important;
+            //     border-color: #c20000 !important;
+            // }
+        }
+    }
+}
+
+.ms-editor {
+    border-radius: $input-border-radius;
+
+    label {
+        color: $color-control-label;
+        display: block;
+        margin-bottom: 8px;
+        font-weight: $font-weight-bold;
+    }
+
+    .border {
+        border: $input-normal-border;
+        border-radius: $input-border-radius;
+
+        input {
+            border-radius: $input-border-radius;
+            height: $input-height;
+        }
+
+        &:not(.error):focus-within {
+            border-color: $input-focus-border-color;
+        }
+
+        &:hover,
+        &:focus-within {
+            border-color: $input-hover-border-color;
+
+            .ic-right {
+                display: flex;
+                background: $white;
+
+                .option-tab:before {
+                    background-position: -408px -192px;
+                }
+            }
+        }
+
+        &.disabled,
+        :disabled {
+            background-color: $input-disabled-bg !important;
+        }
+
+        &.disabled {
+            border-color: $input-disabled-border-color;
+
+            .ic-right {
+                display: none;
+            }
+        }
+
+        &.error {
+            border: 1px solid $input-error-border-color;
+        }
+
+        &.error:focus-within {
+            //border-color: $input-error-border-color;  
+            border: 1px solid $input-error-border-color;
+        }
+    }
+}
+
+.border.error {
+    border: 1px solid $input-error-border-color !important;
+    border-radius: 3px;
+}
+:deep(.ms-datepicker){
+    z-index: 9999;
+}
+.icon24{
+    &.disabled {
+        pointer-events: none;
+    }
+}
