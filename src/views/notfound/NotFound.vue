@@ -9,9 +9,9 @@
       <p class="error-desc">
         Trang bạn đang tìm kiếm không tồn tại hoặc đã được di chuyển sang địa chỉ khác.
       </p>
-      <router-link to="/admin" class="back-home-btn">
+      <router-link to="/thaco/timesheet" class="back-home-btn">
         <span class="material-symbols-outlined">arrow_back</span>
-        <span>Quay về trang quản trị</span>
+        <span>Quay về trang chủ</span>
       </router-link>
     </div>
   </div>

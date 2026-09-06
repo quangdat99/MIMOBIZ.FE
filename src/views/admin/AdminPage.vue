@@ -19,7 +19,7 @@
       }"
     >
       <div class="sidebar-header">
-        <router-link to="/admin" class="logo-link" @click="handleMobileNavClick">
+        <router-link to="/thaco/timesheet" class="logo-link" @click="handleMobileNavClick">
           <MimobizLogo :height="32" :iconOnly="!isMobile && !toggleNavbarValue" />
         </router-link>
         <button
@@ -33,7 +33,7 @@
       </div>
 
       <div class="sidebar-menu">
-        <div class="menu-section-label" v-if="isMobile || toggleNavbarValue">QUẢN TRỊ NGHIỆP VỤ</div>
+        <div class="menu-section-label" v-if="isMobile || toggleNavbarValue">MENU HỆ THỐNG</div>
         <main-menu-item
           v-for="menuItem in menuList"
           :key="menuItem.key"
@@ -75,11 +75,7 @@
           </button>
 
           <div class="breadcrumb-container">
-            <span class="breadcrumb-parent">Quản trị</span>
-            <template v-if="currentParentTitle">
-              <span class="material-symbols-outlined breadcrumb-sep">chevron_right</span>
-              <span class="breadcrumb-parent">{{ currentParentTitle }}</span>
-            </template>
+            <span class="breadcrumb-parent">{{ currentParentTitle }}</span>
             <span class="material-symbols-outlined breadcrumb-sep">chevron_right</span>
             <span class="breadcrumb-current">{{ currentMenuTitle }}</span>
           </div>

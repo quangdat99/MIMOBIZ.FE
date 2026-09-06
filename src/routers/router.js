@@ -8,7 +8,7 @@ const router = createRouter({
   routes: [
     {
       path: "",
-      redirect: '/admin',
+      redirect: '/thaco/timesheet',
       name: 'Trang chủ',
       component: () => import(/* webpackChunkName: "home" */ '@/views/admin/AdminPage.vue'),
       meta: {
