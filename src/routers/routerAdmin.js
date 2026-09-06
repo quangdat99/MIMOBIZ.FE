@@ -78,6 +78,30 @@ export default [{
       meta: {
         anonymous: false,
       }
+    }, {
+      path: 'department',
+      component: () => import(/* webpackChunkName: "home" */ "@/views/admin/department/DepartmentManage.vue"),
+      name: 'Cơ cấu tổ chức',
+      meta: {
+        anonymous: false,
+        role: 1
+      }
+    }, {
+      path: 'employee',
+      component: () => import(/* webpackChunkName: "home" */ "@/views/admin/employee/EmployeeManage.vue"),
+      name: 'Nhân viên / Người dùng',
+      meta: {
+        anonymous: false,
+        role: 1
+      }
+    }, {
+      path: 'jobPosition',
+      component: () => import(/* webpackChunkName: "home" */ "@/views/admin/jobPosition/JobPositionManage.vue"),
+      name: 'Chức vụ, chức danh',
+      meta: {
+        anonymous: false,
+        role: 1
+      }
     }
   ]
 }]

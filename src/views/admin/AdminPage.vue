@@ -40,6 +40,7 @@
           :menuItemObject="menuItem"
           :toggleNavbarValue="isMobile || toggleNavbarValue"
           @click="menuItemClick"
+          @expandNavbar="toggleNavbarValue = true"
         >
         </main-menu-item>
       </div>
@@ -75,6 +76,10 @@
 
           <div class="breadcrumb-container">
             <span class="breadcrumb-parent">Quản trị</span>
+            <template v-if="currentParentTitle">
+              <span class="material-symbols-outlined breadcrumb-sep">chevron_right</span>
+              <span class="breadcrumb-parent">{{ currentParentTitle }}</span>
+            </template>
             <span class="material-symbols-outlined breadcrumb-sep">chevron_right</span>
             <span class="breadcrumb-current">{{ currentMenuTitle }}</span>
           </div>
@@ -180,7 +185,7 @@
 import MainMenuItem from "@/components/mainMenuItem/MainMenuItem.vue";
 import MimobizLogo from "@/components/common/MimobizLogo.vue";
 import { useAdminPage } from "./AdminPage.js";
-import { getCurrentInstance, onMounted, onBeforeUnmount, ref, computed } from "vue";
+import { getCurrentInstance, onMounted, onBeforeUnmount, ref, computed, watch } from "vue";
 import { mapGetters } from "vuex";
 import ConfirmDialog from "primevue/confirmdialog";
 import { usePrimeVue } from "primevue/config";
@@ -205,10 +210,29 @@ export default {
       primevue.config.locale.reject = "Không";
     };
 
-    const currentMenuTitle = computed(() => {
-      const active = menuList.find((item) => item.isSelected);
-      return active ? active.content : "Tổng quan";
+    const activeInfo = computed(() => {
+      for (const group of menuList) {
+        if (group.children) {
+          const activeChild = group.children.find((c) => c.isSelected);
+          if (activeChild) {
+            return {
+              parentTitle: group.content,
+              childTitle: activeChild.content,
+            };
+          }
+        }
+        if (group.isSelected) {
+          return {
+            parentTitle: "",
+            childTitle: group.content,
+          };
+        }
+      }
+      return { parentTitle: "Thaco", childTitle: "Hồ sơ" };
     });
+
+    const currentParentTitle = computed(() => activeInfo.value.parentTitle);
+    const currentMenuTitle = computed(() => activeInfo.value.childTitle);
 
     const handleResize = () => {
       const width = window.innerWidth;
@@ -230,32 +254,41 @@ export default {
       }
     };
 
+    const syncActiveMenuWithRoute = (path) => {
+      if (!path) return;
+      menuList.forEach((group) => {
+        if (group.children) {
+          group.children.forEach((child) => {
+            const isMatch =
+              path === child.route ||
+              path.toLowerCase().endsWith(`/${child.key.toLowerCase()}`) ||
+              path.toLowerCase().includes(`/${child.key.toLowerCase()}`);
+            if (isMatch) {
+              child.isSelected = true;
+              group.expanded = true;
+            } else {
+              child.isSelected = false;
+            }
+          });
+        }
+      });
+    };
+
+    watch(
+      () => proxy.$route?.path,
+      (newPath) => {
+        syncActiveMenuWithRoute(newPath);
+      },
+      { immediate: true }
+    );
+
     onMounted(() => {
       changeToVietnamese();
       handleResize();
       window.addEventListener("resize", handleResize);
 
       window.admin = proxy;
-      let path = history.state.current;
-      if (path.includes("timesheet")) {
-        menuItemClick("timesheet");
-      } else if (path.includes("order")) {
-        menuItemClick("order");
-      } else if (path.includes("bookmarkType")) {
-        menuItemClick("bookmarkType");
-      } else if (path.includes("dossier")) {
-        menuItemClick("dossier");
-      } else if (path.includes("customer")) {
-        menuItemClick("customer");
-      } else if (path.includes("manufacturer")) {
-        menuItemClick("manufacturer");
-      } else if (path.includes("checker")) {
-        menuItemClick("checker");
-      } else if (path.includes("calculator")) {
-        menuItemClick("calculator");
-      } else {
-        menuItemClick("taiLieuGoc");
-      }
+      syncActiveMenuWithRoute(proxy.$route?.path || history.state?.current);
     });
 
     onBeforeUnmount(() => {
@@ -266,16 +299,30 @@ export default {
       if (isMobile.value) {
         mobileDrawerOpen.value = false;
       }
-      let url = "";
-      menuList.forEach((item) => {
-        if (item.key == key) {
-          item.isSelected = true;
-          url = item.route;
+      let targetRoute = "";
+      menuList.forEach((group) => {
+        if (group.children) {
+          group.children.forEach((child) => {
+            if (child.key === key) {
+              child.isSelected = true;
+              targetRoute = child.route;
+              group.expanded = true;
+            } else {
+              child.isSelected = false;
+            }
+          });
         } else {
-          item.isSelected = false;
+          if (group.key === key) {
+            group.isSelected = true;
+            targetRoute = group.route;
+          } else {
+            group.isSelected = false;
+          }
         }
       });
-      proxy.$router.push(url);
+      if (targetRoute && proxy.$route?.path !== targetRoute) {
+        proxy.$router.push(targetRoute);
+      }
     };
 
     const handleMobileNavClick = () => {
@@ -306,6 +353,7 @@ export default {
       isMobile,
       isTablet,
       mobileDrawerOpen,
+      currentParentTitle,
       currentMenuTitle,
       logout,
     };
