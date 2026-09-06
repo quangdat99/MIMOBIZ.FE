@@ -161,3 +161,21 @@
   background-color: var(--va-background-element, #F1F5F9);
   color: var(--va-primary, #154EC1);
 }
+
+.row-urgent,
+.row-urgent td {
+  color: #ff0000 !important;
+
+  .txt-link {
+    color: #ff0000 !important;
+  }
+}
+
+.row-closed,
+.row-closed td {
+  color: #139c04 !important;
+
+  .txt-link {
+    color: #139c04 !important;
+  }
+}

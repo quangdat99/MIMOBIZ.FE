@@ -109,7 +109,7 @@ export default {
       popupUtil.show("TimeSheetDetail", param);
     }
     function rowClassHandler(item, rowNumber) {
-      if (item.urgent == 'Có') {
+      if (item && (item.urgent == 'Có' || item.urgent === true || item.urgent == 1)) {
         return "row-urgent";
       }
       return "";
@@ -129,7 +129,12 @@ export default {
 
 <style lang="scss">
 @import "@/views/admin/timesheet/TimeSheetManage.scss";
-.row-urgent {
+.row-urgent,
+.row-urgent td {
   color: #ff0000 !important;
+
+  .txt-link {
+    color: #ff0000 !important;
+  }
 }
 </style>

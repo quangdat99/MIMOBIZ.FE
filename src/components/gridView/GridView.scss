@@ -89,6 +89,29 @@
         }
     }
 
+    /* Table Body Rows & Custom Row Classes */
+    tbody tr {
+        color: var(--easy-table-body-row-font-color, var(--va-text-primary, #1E293B));
+
+        &.row-urgent,
+        &.row-urgent td {
+            color: #ff0000 !important;
+
+            .txt-link {
+                color: #ff0000 !important;
+            }
+        }
+
+        &.row-closed,
+        &.row-closed td {
+            color: #139c04 !important;
+
+            .txt-link {
+                color: #139c04 !important;
+            }
+        }
+    }
+
     /* Table Body Cells */
     tr td {
         cursor: default;
@@ -99,7 +122,7 @@
         background-color: var(--easy-table-body-row-background-color, #FFFFFF);
         border-bottom: 1px solid #F1F5F9 !important;
         font-size: 13px;
-        color: var(--va-text-primary, #1E293B);
+        color: inherit;
 
         @media (max-width: 640px) {
             font-size: 12.5px;
@@ -451,5 +474,24 @@
     .button {
         padding: 0px !important;
         margin: 0 4px 0 4px !important;
+    }
+}
+
+/* Global Row Styles for Data Tables */
+.row-urgent,
+.row-urgent td {
+    color: #ff0000 !important;
+
+    .txt-link {
+        color: #ff0000 !important;
+    }
+}
+
+.row-closed,
+.row-closed td {
+    color: #139c04 !important;
+
+    .txt-link {
+        color: #139c04 !important;
     }
 }

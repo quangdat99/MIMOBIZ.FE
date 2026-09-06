@@ -291,7 +291,12 @@ export default {
 
 <style lang="scss">
 @import "@/views/admin/timesheet/TimeSheetManage.scss";
-.row-closed {
+.row-closed,
+.row-closed td {
   color: #139c04 !important;
+
+  .txt-link {
+    color: #139c04 !important;
+  }
 }
 </style>
