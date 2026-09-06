@@ -1,12 +1,14 @@
-import EventEmiter from 'events';
+import TinyEmitter from 'tiny-emitter';
 import store from "@/store/store.js";
 
-class AuthService extends EventEmiter {
+class AuthService extends TinyEmitter {
   /**
    * Kiểm tra xem còn session đăng nhập không
    */
   isAuthenticated(to) {
-    store.commit("moduleContext/updateTo", to);
+    if (to) {
+      store.commit("moduleContext/updateTo", to);
+    }
     const context = store.state["moduleContext"];
     if (context && context.Token) {
       let expired = context.Context?.tokenExpired || context.Context?.token_expired;
@@ -18,7 +20,7 @@ class AuthService extends EventEmiter {
   }
   login(to) {
     store.commit("moduleContext/updateLogout");
-    store.commit("moduleContext/updatePath", to.path);
+    store.commit("moduleContext/updatePath", to?.path || "/");
     location.href = location.origin + "/login";
   }
 }

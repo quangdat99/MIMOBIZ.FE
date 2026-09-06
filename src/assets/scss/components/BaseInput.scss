@@ -1,52 +1,106 @@
 
 
-.base-input{
+.base-input {
     padding: 0;
-    input{
-        background-color: $white;
+    position: relative;
+
+    .label {
+        display: block;
+        font-size: 13px;
+        font-weight: 600;
+        color: var(--va-text-primary, #1E293B);
+        margin-bottom: 6px;
     }
-    .icon-input{
+
+    input {
+        background-color: var(--va-background-secondary, #FFFFFF);
+    }
+
+    .icon-input {
         position: absolute;
-        right: 5px;
+        right: 10px;
         top: 50%;
         transform: translateY(-50%);
+        color: var(--va-text-secondary, #64748B);
     }
 }
-.icon{
-    &.left{
-        margin-right: 5px;
+
+.icon {
+    &.left {
+        margin-right: 8px;
     }
     cursor: pointer;
 }
 
-.base-input-item{
-    border: none;
-    padding: 4px 4px;
-    background: transparent;
+.base-input-item {
+    font-family: inherit;
+    font-size: 13px;
+    color: var(--va-text-primary, #1E293B);
+    border: 1px solid var(--va-background-border, #CBD5E1);
+    padding: 0 12px;
+    background: var(--va-background-secondary, #FFFFFF);
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
     height: $input-height;
-    border-radius: $input-border-radius;
-    &:focus{
+    border-radius: var(--va-radius, 8px);
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+
+    &::placeholder {
+        color: #94A3B8;
+    }
+
+    &:hover:not(:disabled) {
+        border-color: #94A3B8;
+    }
+
+    &:focus {
         outline: none;
+        border-color: var(--va-primary, #154EC1);
+        box-shadow: 0 0 0 3px rgba(21, 78, 193, 0.15);
+    }
+
+    &.error {
+        border-color: var(--va-danger, #EF4444) !important;
+        &:focus {
+            box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.15) !important;
+        }
+    }
+
+    &.disabled {
+        background-color: #F8FAFC;
+        border-color: #E2E8F0;
+        color: #94A3B8;
+        cursor: not-allowed;
     }
 }
-.has-right-icon{
-    padding-right: 40px;
+
+.has-right-icon {
+    padding-right: 36px;
 }
-.has-left-icon{
-    padding-left: 16px;
+
+.has-left-icon {
+    padding-left: 36px;
 }
-input{
-    &.has-border{
-        border: 1px solid #C9C9C9;
-        border-radius: 3px;
+
+input {
+    &.has-border {
+        border: 1px solid #CBD5E1;
+        border-radius: var(--va-radius, 8px);
     }
+
     &.disabled {
         background-color: $input-disabled-bg;
     }
 }
-.error-icon{
+
+.error-icon {
     margin: 5px 6px 0 0;
+}
+
+.error-text {
+    font-size: 12px;
+    color: var(--va-danger, #EF4444);
+    margin-top: 4px;
+    font-weight: 500;
 }

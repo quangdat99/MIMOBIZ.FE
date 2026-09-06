@@ -2,11 +2,29 @@
 
 button.btn {
     height: $height-control;
-    padding: 0px 15px;
+    padding: 0px 16px;
+    font-family: inherit;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 1;
+    border-radius: var(--va-radius, 8px);
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    cursor: pointer;
+    border: 1px solid transparent;
+    user-select: none;
+
+    &:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
 }
 
 button.text {
-    font-weight: bold;
+    font-weight: 600;
 }
 
 button {
@@ -14,105 +32,80 @@ button {
 }
 
 .base-button {
-    transition: all 0.2s ease;
     cursor: pointer;
-    display: flex;
+    display: inline-flex;
     align-items: center;
+    justify-content: center;
 }
 
 .btn-border-none {
     border: none;
 }
 
-.btn-opacity {
-    &:hover {
-        opacity: 1;
-    }
-
-    &:focus {
-        opacity: 1;
-    }
-
-    &:focus-within {
-        opacity: 1;
-    }
-}
-
-.disabled-btn {
-    opacity: 0.9;
-    cursor: unset;
-
-    &:hover {
-        background-color: transparent;
-    }
+.btn-radius {
+    border-radius: 9999px !important;
 }
 
 .primary {
-    transition: all 0.35s;
-    cursor: pointer;
-    text-transform: inherit;
-    font-weight: 500;
-    border-radius: 4px;
-    font-size: 14px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: $primary;
-    color: $white !important;
-    overflow: hidden;
+    background-color: var(--va-primary, #154EC1);
+    color: #FFFFFF !important;
+    border: 1px solid transparent;
+    box-shadow: 0 1px 2px 0 rgba(21, 78, 193, 0.2);
 
-    &:active {
-        color: $white;
-        background-color: $primary;
+    &:hover:not(:disabled) {
+        background-color: var(--va-primary-hover, #103E9C);
+        box-shadow: 0 4px 8px 0 rgba(21, 78, 193, 0.3);
+        transform: translateY(-1px);
+    }
+
+    &:active:not(:disabled) {
+        transform: translateY(0);
+        background-color: #0D3482;
     }
 }
 
 .white {
-    transition: all 0.35s;
-    cursor: pointer;
-    text-transform: inherit;
-    font-weight: 500;
-    border-radius: 2px;
-    font-size: 14px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: $white;
-    color: $black;
-    overflow: hidden;
-    border: 1px solid rgba(0, 0, 0, .09);
+    background-color: var(--va-background-secondary, #FFFFFF);
+    color: var(--va-text-primary, #1E293B) !important;
+    border: 1px solid var(--va-background-border, #E2E8F0);
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
 
-    &:hover {
-        color: $primary;
+    &:hover:not(:disabled) {
+        border-color: var(--va-primary, #154EC1);
+        color: var(--va-primary, #154EC1) !important;
+        background-color: var(--va-background-element, #F8FAFC);
+        transform: translateY(-1px);
+    }
+
+    &:active:not(:disabled) {
+        transform: translateY(0);
+        background-color: #F1F5F9;
     }
 
     &.active {
-        color: $white;
-        background-color: $primary;
+        color: #FFFFFF !important;
+        background-color: var(--va-primary, #154EC1);
+        border-color: var(--va-primary, #154EC1);
     }
 }
 
 .transparent {
-    transition: all 0.35s;
-    cursor: pointer;
-    text-transform: inherit;
-    font-weight: 500;
-    border-radius: 4px;
-    font-size: 14px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     background-color: transparent;
-    color: $black;
-    overflow: hidden;
+    color: var(--va-text-primary, #1E293B);
+    border: 1px solid transparent;
 
-    &:hover {
-        color: $primary;
+    &:hover:not(:disabled) {
+        background-color: var(--va-background-element, #F1F5F9);
+        color: var(--va-primary, #154EC1);
+    }
+
+    &:active:not(:disabled) {
+        background-color: #E2E8F0;
     }
 
     &.active {
-        color: $white;
-        background-color: $primary;
+        color: var(--va-primary, #154EC1);
+        background-color: rgba(21, 78, 193, 0.08);
     }
 }
 

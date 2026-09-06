@@ -9,7 +9,7 @@
     :loading="loading"
     v-model:server-options="serverOptions"
     multi-sort
-    :theme-color="'#C20000'"
+    :theme-color="'#154EC1'"
     table-class-name="customize-table"
     header-text-direction="center"
     body-text-direction="left"

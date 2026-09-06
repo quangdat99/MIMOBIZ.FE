@@ -108,28 +108,125 @@ h3 {
 
 
 
-.p-dialog-footer {
-    .p-button {
-        &.p-button-text {
-            color: #333333;
+.p-dialog {
+    border-radius: var(--va-radius-lg, 12px) !important;
+    background: var(--va-background-secondary, #FFFFFF) !important;
+    border: 1px solid var(--va-background-border, #E2E8F0) !important;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.12), 0 10px 10px -5px rgba(0, 0, 0, 0.04) !important;
+    max-width: min(560px, calc(100vw - 24px)) !important;
+    overflow: hidden;
+
+    @media (max-width: 768px) {
+        width: calc(100vw - 24px) !important;
+        margin: auto !important;
+    }
+
+    .p-dialog-header {
+        padding: 14px 20px !important;
+        border-bottom: 1px solid var(--va-background-border, #E2E8F0) !important;
+        background-color: var(--va-background-secondary, #FFFFFF) !important;
+
+        .p-dialog-title {
+            font-size: 1.125rem !important;
+            font-weight: 600 !important;
+            color: var(--va-text-primary, #1E293B) !important;
         }
 
-        &.p-confirm-dialog-reject {
+        .p-dialog-header-icon {
+            border-radius: 8px !important;
+            color: var(--va-text-secondary, #64748B) !important;
+            transition: all 0.15s ease !important;
+
             &:hover {
-                color: #c20000 !important;
+                background: var(--va-background-element, #F1F5F9) !important;
+                color: var(--va-danger, #EF4444) !important;
             }
         }
+    }
 
-        &.p-confirm-dialog-accept {
-            outline: none !important;
-            background-color: #c20000;
-            border-color: #c20000;
-            padding: 4px;
-            // &:hover,&:active{
-            //     background-color: #c20000 !important;
-            //     border-color: #c20000 !important;
-            // }
+    .p-dialog-content {
+        padding: 20px !important;
+        color: var(--va-text-primary, #334155) !important;
+        font-size: 14px !important;
+        line-height: 1.6 !important;
+        background-color: var(--va-background-secondary, #FFFFFF) !important;
+    }
+
+    .p-dialog-footer {
+        padding: 10px 20px !important;
+        background-color: var(--va-background-element, #F8FAFC) !important;
+        border-top: 1px solid var(--va-background-border, #E2E8F0) !important;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 10px;
+
+        .p-button {
+            border-radius: var(--va-radius, 8px) !important;
+            font-size: 13px !important;
+            font-weight: 600 !important;
+            padding: 8px 18px !important;
+            height: 36px !important;
+            transition: all 0.2s ease !important;
+
+            &.p-confirm-dialog-reject {
+                background-color: var(--va-background-secondary, #FFFFFF) !important;
+                border: 1px solid var(--va-background-border, #E2E8F0) !important;
+                color: var(--va-text-secondary, #64748B) !important;
+
+                &:hover {
+                    background-color: var(--va-background-element, #F1F5F9) !important;
+                    color: var(--va-text-primary, #1E293B) !important;
+                    border-color: #CBD5E1 !important;
+                }
+            }
+
+            &.p-confirm-dialog-accept {
+                background-color: var(--va-primary, #154EC1) !important;
+                border-color: var(--va-primary, #154EC1) !important;
+                color: #FFFFFF !important;
+
+                &:hover {
+                    background-color: #0E3D9E !important;
+                    border-color: #0E3D9E !important;
+                    box-shadow: 0 4px 12px rgba(21, 78, 193, 0.3) !important;
+                }
+            }
         }
+    }
+}
+
+/* PrimeVue Toast Notifications */
+.p-toast {
+    max-width: calc(100vw - 32px) !important;
+
+    .p-toast-message {
+        border-radius: var(--va-radius, 10px) !important;
+        box-shadow: var(--va-shadow-lg, 0 10px 15px -3px rgba(0, 0, 0, 0.1)) !important;
+        border-width: 0 0 0 4px !important;
+        margin-bottom: 12px !important;
+        font-size: 13px !important;
+
+        .p-toast-message-content {
+            padding: 12px 16px !important;
+            align-items: center !important;
+
+            .p-toast-summary {
+                font-weight: 600 !important;
+                font-size: 14px !important;
+            }
+
+            .p-toast-detail {
+                font-size: 13px !important;
+                margin-top: 4px !important;
+            }
+        }
+    }
+
+    @media (max-width: 640px) {
+        width: calc(100vw - 24px) !important;
+        left: 12px !important;
+        right: 12px !important;
     }
 }
 

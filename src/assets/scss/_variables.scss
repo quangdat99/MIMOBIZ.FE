@@ -5,80 +5,103 @@ $image-loading: '@/assets/images/icon/loading.svg';
 /* Size */
 $width-container: 1105px;
 $height-footer: 350px;
-$height-control: 32px;
+$height-control: 36px;
 
-/* Color */
-$primary: #C20000;
-$sub-primary: #ce4f4f;
-$primary-hover: #ffe4e4;
-$black-2: #393a3d;
-$black-3: #59595d;
-$grey-light: #9e9e9e;
+/* Modern Vuestic Admin Theme Colors */
+$primary: #154EC1;
+$sub-primary: #2563EB;
+$primary-hover: #103E9C;
+$primary-light: rgba(21, 78, 193, 0.08);
+$black-2: #1E293B;
+$black-3: #334155;
+$grey-light: #94A3B8;
 
-// $primary: #1ca8ff;
-$secondary: #c1c4cc;
-$blue: #0078d7;
-$semi-secondary: #707070;
-$white: #fff;
-$black: #111111;
-$text-grey: rgba(0, 0, 0, .54);
-$ms-grey: #f4f5f8;
-$ms-grey-1: #ededed;
-$ms-grey-2: #e8e8e886;
-$bg-main: #f5f5f5;
-$bg-tab: #ebebeb;
-$bg-tab-1: #ececec;
+$secondary: #64748B;
+$blue: #154EC1;
+$semi-secondary: #64748B;
+$white: #ffffff;
+$black: #0F172A;
+$text-grey: #64748B;
+$ms-grey: #F8FAFC;
+$ms-grey-1: #F1F5F9;
+$ms-grey-2: #E2E8F0;
+$bg-main: #F4F6F8;
+$bg-card: #FFFFFF;
+$bg-tab: #F1F5F9;
+$bg-tab-1: #E2E8F0;
 
-$color-error: #ff7777;
-$color-focus: #2080ff;
-$color-control-label: #212121;
-$color-grey: #757575;
+$color-error: #EF4444;
+$color-focus: #154EC1;
+$color-control-label: #334155;
+$color-grey: #64748B;
+$color-success: #16A34A;
+$color-warning: #F59E0B;
+$color-info: #0284C7;
 
+/* CSS Custom Properties (Vuestic Theme System) */
+:root {
+  --va-primary: #154EC1;
+  --va-primary-hover: #103E9C;
+  --va-primary-light: rgba(21, 78, 193, 0.08);
+  --va-secondary: #64748B;
+  --va-background-primary: #F4F6F8;
+  --va-background-secondary: #FFFFFF;
+  --va-background-element: #F1F5F9;
+  --va-background-card: #FFFFFF;
+  --va-background-border: #E2E8F0;
+  --va-text-primary: #1E293B;
+  --va-text-secondary: #64748B;
+  --va-text-inverted: #FFFFFF;
+  --va-success: #16A34A;
+  --va-danger: #EF4444;
+  --va-warning: #F59E0B;
+  --va-info: #0284C7;
+  --va-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.06), 0 1px 2px -1px rgba(0, 0, 0, 0.04);
+  --va-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+  --va-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.04);
+  --va-radius: 8px;
+  --va-radius-lg: 12px;
+}
 
 /* Input */
-
-
-$input-normal-border: 1px solid $secondary;
-$input-border-radius: 2px;
-$input-hover-border-color: $primary;
-$input-focus-border-color: $color-focus;
-$input-error-border-color: #ff0000;
-$input-disabled-border-color: $secondary;
-$input-disabled-color: $secondary;
-$input-disabled-bg: $ms-grey;
-$input-outline: #25669a auto 1px;
-$input-height: 26px !default;
-$input-height-custom-small-no-border: 24px;
-$input-height-custom-big-no-border: 28px;
-$input-height-custom-small-with-border: 23px;
-$input-height-custom-big-with-border: 27px;
-$input-height-custom-small: 22px;
-$input-height-custom-big: 26px;
-
+$input-normal-border: 1px solid #CBD5E1;
+$input-border-radius: 8px;
+$input-hover-border-color: #94A3B8;
+$input-focus-border-color: #154EC1;
+$input-error-border-color: #EF4444;
+$input-disabled-border-color: #E2E8F0;
+$input-disabled-color: #94A3B8;
+$input-disabled-bg: #F8FAFC;
+$input-outline: 2px solid rgba(21, 78, 193, 0.2);
+$input-height: 36px !default;
+$input-height-custom-small-no-border: 28px;
+$input-height-custom-big-no-border: 36px;
+$input-height-custom-small-with-border: 28px;
+$input-height-custom-big-with-border: 36px;
+$input-height-custom-small: 28px;
+$input-height-custom-big: 36px;
 
 /* Font */
-$font-color: $black;
-$font-size-process: 11px;
-$font-size-process-xl: 13px;
-$font-size: 13px;
-$font-size-title: 14px;
-$font-size-head: 14px;
-$font-size-head-title: 15px;
-$font-size-left-menu-xl: 16px;
+$font-color: #1E293B;
+$font-size-process: 12px;
+$font-size-process-xl: 14px;
+$font-size: 14px;
+$font-size-title: 16px;
+$font-size-head: 15px;
+$font-size-head-title: 16px;
+$font-size-left-menu-xl: 15px;
 $font-size-title-process: 18px;
 $font-size-title-process-x1: 20px;
-$font-size-title: 20px;
 $font-size-custom-small: 12px;
-$font-size-custom-big: 13px;
-// $font-family: 'Roboto', sans-serif; 
-$font-family: 'Noto Sans', system-ui; 
+$font-size-custom-big: 14px;
+$font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; 
 $font-weight-normal: 400;
 $font-weight-medium: 500;
 $font-weight-semi-bold: 600;
 $font-weight-bold: 700;
 
 /* Combo */
-$combo-height : 32px;
+$combo-height : 36px;
 
 /* Menu */
-$menu-wrapper-hv : #e8e9ec;
+$menu-wrapper-hv : #F1F5F9;

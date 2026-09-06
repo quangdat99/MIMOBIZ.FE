@@ -215,45 +215,158 @@
     }
 
     &.edit {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 30px;
+        height: 30px;
+        border-radius: 6px;
+        color: var(--va-text-secondary, #64748B);
+        transition: all 0.2s ease;
+
         &::before {
-            background-position: -0 -280px;
+            font-family: 'Material Symbols Outlined' !important;
+            content: 'edit';
+            background: none !important;
+            position: static !important;
+            font-size: 18px;
+            width: auto;
+            height: auto;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        &:hover::before {
-            background-position: -312px -24px;
+        &:hover {
+            color: var(--va-primary, #154EC1);
+            background-color: rgba(21, 78, 193, 0.1);
         }
-
     }
 
     &.delete {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 30px;
+        height: 30px;
+        border-radius: 6px;
+        color: var(--va-text-secondary, #64748B);
+        transition: all 0.2s ease;
+
         &::before {
-            background-position: -24px -280px;
+            font-family: 'Material Symbols Outlined' !important;
+            content: 'delete';
+            background: none !important;
+            position: static !important;
+            font-size: 18px;
+            width: auto;
+            height: auto;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        &:hover::before {
-            background-position: -312px -0;
+        &:hover {
+            color: var(--va-danger, #EF4444);
+            background-color: rgba(239, 68, 68, 0.1);
         }
     }
 
     &.reload {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 34px;
+        height: 34px;
+        border-radius: 8px;
+        border: 1px solid var(--va-background-border, #E2E8F0);
+        background-color: var(--va-background-secondary, #FFFFFF);
+        color: var(--va-text-secondary, #64748B);
+        transition: all 0.2s ease;
+
         &::before {
-            background-position: -336px -24px;
+            font-family: 'Material Symbols Outlined' !important;
+            content: 'refresh';
+            background: none !important;
+            position: static !important;
+            font-size: 19px;
+            width: auto;
+            height: auto;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        &:hover::before {
-            background-position: -336px -0;
+        &:hover {
+            color: var(--va-primary, #154EC1);
+            border-color: var(--va-primary, #154EC1);
+            background-color: var(--va-background-element, #F1F5F9);
         }
     }
+
     &.export-excel {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 34px;
+        height: 34px;
+        border-radius: 8px;
+        border: 1px solid var(--va-background-border, #E2E8F0);
+        background-color: var(--va-background-secondary, #FFFFFF);
+        color: var(--va-text-secondary, #64748B);
+        transition: all 0.2s ease;
+
         &::before {
-            background-position: -0 -352px;
+            font-family: 'Material Symbols Outlined' !important;
+            content: 'file_download';
+            background: none !important;
+            position: static !important;
+            font-size: 19px;
+            width: auto;
+            height: auto;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        &:hover::before {
-            background-position: -0 -352px;
+        &:hover {
+            color: var(--va-primary, #154EC1);
+            border-color: var(--va-primary, #154EC1);
+            background-color: var(--va-background-element, #F1F5F9);
+        }
+    }
+
+    &.close {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 32px;
+        height: 32px;
+        border-radius: 8px;
+        color: var(--va-text-secondary, #64748B);
+        cursor: pointer;
+        transition: all 0.2s ease;
+
+        &::before {
+            font-family: 'Material Symbols Outlined' !important;
+            content: 'close';
+            background: none !important;
+            position: static !important;
+            font-size: 20px;
+            width: auto;
+            height: auto;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        &:hover {
+            color: var(--va-danger, #EF4444);
+            background-color: rgba(239, 68, 68, 0.1);
         }
     }
 }
+
 
 .icon16 {
     height: 16px;
@@ -272,5 +385,86 @@
 
     &.tick::before {
         background-position: -0 -120px;
+    }
+}
+
+/* Material Symbols Outlined Integration */
+.material-symbols-outlined {
+    font-family: 'Material Symbols Outlined' !important;
+    font-weight: normal;
+    font-style: normal;
+    font-size: 20px;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-feature-settings: 'liga';
+    -webkit-font-smoothing: antialiased;
+    user-select: none;
+}
+
+.m-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.15s ease, transform 0.15s ease;
+
+    &.size-16 {
+        font-size: 16px;
+        width: 16px;
+        height: 16px;
+    }
+
+    &.size-20 {
+        font-size: 20px;
+        width: 20px;
+        height: 20px;
+    }
+
+    &.size-24 {
+        font-size: 24px;
+        width: 24px;
+        height: 24px;
+    }
+
+    &.size-28 {
+        font-size: 28px;
+        width: 28px;
+        height: 28px;
+    }
+}
+
+/* Modern Action Icon Button */
+.btn-action-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    cursor: pointer;
+    background: transparent;
+    color: var(--va-text-secondary);
+    border: 1px solid transparent;
+    transition: all 0.2s ease;
+
+    &:hover {
+        background: var(--va-background-element);
+        color: var(--va-primary);
+    }
+
+    &.edit-btn:hover {
+        color: var(--va-primary);
+        background: rgba(21, 78, 193, 0.08);
+    }
+
+    &.delete-btn:hover {
+        color: var(--va-danger);
+        background: rgba(239, 68, 68, 0.08);
     }
 }

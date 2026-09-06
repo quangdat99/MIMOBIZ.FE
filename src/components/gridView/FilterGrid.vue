@@ -1,7 +1,7 @@
 <template>
   <div
     class="filter-grid"
-    :style="{ width: `${width}px` }"
+    :style="{ width: width ? `${width}px` : undefined }"
     :class="{ 'w-100': !width }"
   >
     <base-combobox
@@ -12,6 +12,7 @@
       :initText="dataFilter.field_name"
       :data="dataFields"
       :width="widthCombo"
+      class="filter-combobox"
       @update:modelValue="
         (value, displayField) => {
           dataFilter.field = value;
@@ -21,20 +22,26 @@
       :readOnly="true"
     ></base-combobox>
     <base-input
-      class="ml-2"
+      class="filter-input"
+      placeholder="Từ khóa tìm kiếm..."
       v-model="dataFilter.text"
       :maxLength="100"
       :width="widthInput"
+      @baseKeyup.enter="filter"
     ></base-input>
-    <button class="ml-2 btn-filter pointer" @click="filter()">Lọc</button>
-    <span
-      v-if="dataFilter.field != 'All' || dataFilter.text"
-      class="txt-link ml-2"
-      @click="deleteFilter()"
-      >xóa</span
-    >
+    <div class="filter-actions">
+      <button class="btn-filter pointer" @click="filter()">Lọc</button>
+      <span
+        v-if="dataFilter.field != 'All' || dataFilter.text"
+        class="txt-link delete-filter-btn"
+        @click="deleteFilter()"
+        title="Xóa bộ lọc"
+        >Xóa lọc</span
+      >
+    </div>
   </div>
 </template>
+
 
 <script>
 import {
@@ -148,5 +155,61 @@ export default defineComponent({
 .filter-grid {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+
+  .filter-input {
+    min-width: 140px;
+  }
+
+  .filter-actions {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .delete-filter-btn {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--va-text-secondary, #64748B);
+    white-space: nowrap;
+
+    &:hover {
+      color: var(--va-danger, #EF4444);
+    }
+  }
+
+  @media (max-width: 640px) {
+    width: 100% !important;
+    gap: 8px;
+
+    .filter-combobox {
+      width: 100% !important;
+      max-width: 100% !important;
+
+      :deep(.base-combobox) {
+        width: 100% !important;
+      }
+    }
+
+    .filter-input {
+      width: 100% !important;
+      max-width: 100% !important;
+      margin-left: 0 !important;
+
+      :deep(.base-input) {
+        width: 100% !important;
+      }
+    }
+
+    .filter-actions {
+      width: 100%;
+      justify-content: space-between;
+
+      .btn-filter {
+        flex: 1;
+      }
+    }
+  }
 }
 </style>

@@ -8,7 +8,7 @@
     :min-height="200"
     :content-style="styles"
     v-bind="$attrs"
-    :drag="true"
+    :drag="!isMobile"
     :click-to-close="false"
     drag-selector=".modal__title"
   >
@@ -19,7 +19,6 @@
       </div>
       <div class="title-right">
         <slot name="icon" :close="close"></slot>
-        <!-- <div class="button icon24 close" @click="close"></div> -->
       </div>
     </div>
     <div class="modal__content flex-column flex1">
@@ -40,14 +39,10 @@ export default {
 import {
   ref,
   onMounted,
-  watch,
-  defineComponent,
-  getCurrentInstance,
-  reactive,
-  defineProps,
+  onBeforeUnmount,
   computed,
 } from "vue";
-const { proxy } = getCurrentInstance();
+
 const props = defineProps({
   width: {
     type: Number,
@@ -63,32 +58,51 @@ const props = defineProps({
   },
   params: {
     type: Object,
-    default: () => {},
+    default: () => ({}),
   },
   name: {
     type: String,
     default: null,
   },
-  // show: {
-  //   type: Boolean,
-  //   default: false,
-  // },
 });
+
+const isMobile = ref(typeof window !== "undefined" ? window.innerWidth < 768 : false);
+
+const handleResize = () => {
+  if (typeof window !== "undefined") {
+    isMobile.value = window.innerWidth < 768;
+  }
+};
+
+onMounted(() => {
+  window.addEventListener("resize", handleResize);
+});
+
+onBeforeUnmount(() => {
+  window.removeEventListener("resize", handleResize);
+});
+
 const styles = computed(() => {
   let style = {};
-  if (props.width) {
-    style.width = `${props.width}px`;
+  if (isMobile.value) {
+    style.width = "calc(100vw - 16px)";
+    style.maxHeight = "calc(100vh - 24px)";
+    style.height = "auto";
+  } else {
+    if (props.width) {
+      style.width = `${props.width}px`;
+      style.maxWidth = "calc(100vw - 32px)";
+    }
+    if (props.height) {
+      style.height = `${props.height}px`;
+      style.maxHeight = "calc(100vh - 32px)";
+    }
   }
-  if (props.height) {
-    style.height = `${props.height}px`;
-  }
-  // style.top = `calc(50vh-${props.height}px)`;
-  // style.left = `calc(50vw-${props.width}px)`;
   return style;
 });
 </script>
 
-<style scoped lang="scss" >
+<style scoped lang="scss">
 @import "@/assets/scss/variables.scss";
 
 :deep(.vfm__container) {
@@ -96,44 +110,95 @@ const styles = computed(() => {
   justify-content: center;
   align-items: center;
 }
+
 :deep(.modal-content) {
-  position: absolute;
+  position: relative;
   display: flex;
   flex-direction: column;
-  border-radius: 0.25rem;
-  background: #fff;
+  border-radius: var(--va-radius-lg, 12px);
+  background: var(--va-background-secondary, #ffffff);
+  border: 1px solid var(--va-background-border, #e2e8f0);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.12), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  max-width: calc(100vw - 16px);
+  max-height: calc(100vh - 24px);
+  overflow: hidden;
 }
+
 .modal__content {
   flex: 1;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
+
 .modal__title {
-  padding: 13px 16px 10px 22px;
+  padding: 14px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.09);
+  border-bottom: 1px solid var(--va-background-border, #e2e8f0);
+  background-color: var(--va-background-secondary, #ffffff);
+  flex-shrink: 0;
+
   &:hover {
     cursor: move;
   }
+
+  .title-left {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-width: 0;
+  }
+
   .title {
-    font-size: 22px;
+    font-size: 1.125rem;
     font-weight: 600;
-    color: #262807;
+    color: var(--va-text-primary, #1e293b);
+    line-height: 1.4;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
-  .button {
-    cursor: pointer;
-    display: inline-block;
-    padding: 10px 8px;
-  }
+
   .title-right {
     display: flex;
     align-items: center;
+    flex-shrink: 0;
   }
 }
+
 .modal__footer {
-  height: 44px;
-  padding: 0 20px;
+  min-height: 52px;
+  padding: 8px 20px;
   display: flex;
-  background-color: #f5f5f5;
+  align-items: center;
+  background-color: var(--va-background-element, #f8fafc);
+  border-top: 1px solid var(--va-background-border, #e2e8f0);
+  flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+  :deep(.modal-content) {
+    width: calc(100vw - 16px) !important;
+    max-height: calc(100vh - 24px) !important;
+    border-radius: 10px;
+    margin: auto;
+  }
+
+  .modal__title {
+    padding: 12px 16px;
+    &:hover {
+      cursor: default;
+    }
+
+    .title {
+      font-size: 1rem;
+    }
+  }
+
+  .modal__footer {
+    padding: 10px 14px;
+    height: auto !important;
+  }
 }
 </style>

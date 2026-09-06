@@ -4,7 +4,12 @@
 
 
 body {
-  font-size: 12px;
+  font-family: var(--va-font-family, 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif);
+  font-size: 13px;
+  color: var(--va-text-primary, #1E293B);
+  background-color: var(--va-background-primary, #F4F6F8);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 div {
@@ -19,6 +24,7 @@ div {
 .text-white {
   color: #ffffff;
 }
+
 
 .main-container {
   height: 100%;
@@ -385,30 +391,31 @@ body {
   height: 100vh;
   overflow: hidden;
 
-  // Simple
+  // Modern slim scrollbar
   ::-webkit-scrollbar {
-    width: 12px;
-    height: 12px;
+    width: 6px;
+    height: 6px;
   }
 
   ::-webkit-scrollbar-track {
-    border-radius: 10px;
-    background: rgba(0, 0, 0, 0.1);
+    border-radius: 9999px;
+    background: transparent;
   }
 
   ::-webkit-scrollbar-thumb {
-    border-radius: 10px;
-    background: rgba(0, 0, 0, 0.1);
+    border-radius: 9999px;
+    background: #CBD5E1;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: rgba(0, 0, 0, 0.12);
+    background: #94A3B8;
   }
 
   ::-webkit-scrollbar-thumb:active {
-    background: rgba(0, 0, 0, 0.15);
+    background: #64748B;
   }
 }
+
 
 .d-flex {
   display: flex;
@@ -561,47 +568,90 @@ body {
   display: none !important;
 }
 
-.p-dialog {
-  max-width: 800px;
-}
+/* Responsive Popups & Detail Dialogs */
+.popup-container {
+  padding: 20px;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 
-.p-dialog-header {
-  padding: 8px 8px 16px 16px !important;
-}
-
-.p-dialog-content {
-  padding: 8px 16px 16px 16px !important;
-}
-
-.p-dialog-footer {
-  padding: 0 16px 16px 8px;
-}
-
-.p-link:focus,
-.p-button:focus {
-  box-shadow: unset !important;
-}
-
-.p-dialog-header-close-icon {
-
-  &:focus {
-    box-shadow: unset !important;
+  .control-title {
+    label {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--va-text-primary, #334155);
+      margin-bottom: 4px;
+      display: inline-block;
+    }
   }
 
-  height: 24px;
-  width: 24px;
-  position: relative;
+  @media (max-width: 768px) {
+    padding: 14px 12px;
 
-  &::before {
-    content: '' !important;
-    position: absolute;
-    background: transparent url($image-sprite) no-repeat;
-    height: 24px;
-    width: 24px;
-    top: 0;
-    left: 0;
-    background-position: -240px -0;
+    // Convert multi-column rows into clean stacked columns on mobile
+    .flex-row:not(.no-stack-mobile) {
+      flex-direction: column !important;
+      align-items: stretch !important;
+
+      > [class*="flex"],
+      > .flex1,
+      > .flex2,
+      > .flex3,
+      > .flex4,
+      > .flex5,
+      > .flex6,
+      > .flex7 {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        margin-top: 10px;
+        width: 100% !important;
+        flex: none !important;
+
+        &:first-child {
+          margin-top: 0;
+        }
+      }
+    }
+
+    // Target list items inside modal
+    .targets {
+      height: auto !important;
+      max-height: 280px !important;
+      overflow-y: auto;
+      margin-top: 12px;
+
+      .flex-row {
+        background: var(--va-background-element, #F8FAFC);
+        border: 1px solid var(--va-background-border, #E2E8F0);
+        border-radius: 8px;
+        padding: 12px;
+        margin-top: 10px;
+        position: relative;
+
+        .delete {
+          position: absolute;
+          top: 8px;
+          right: 8px;
+          margin: 0 !important;
+        }
+      }
+    }
+
+    // Role permissions table inside CheckerDetail
+    .seleted-all,
+    .checker-detail .popup-container [class*="align-center"] {
+      overflow-x: auto;
+      white-space: nowrap;
+      padding-bottom: 6px;
+      -webkit-overflow-scrolling: touch;
+    }
   }
+}
+
+.no-stack-mobile {
+  flex-direction: row !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 16px !important;
 }
 
 .list-tab {
@@ -665,9 +715,88 @@ body {
 }
 
 .btn-filter {
-  height: 25px;
-  padding: 0px 10px;
+  height: 34px;
+  padding: 0px 14px;
   text-align: center;
-  line-height: 22px;
+  line-height: 32px;
   white-space: nowrap;
+  font-size: 13px;
+  font-weight: 500;
+  border-radius: 8px;
+  border: 1px solid var(--va-background-border);
+  background: var(--va-background-secondary);
+  color: var(--va-text-primary);
+  transition: all 0.2s ease;
+
+  &:hover {
+    border-color: var(--va-primary);
+    color: var(--va-primary);
+    background: var(--va-background-element);
+  }
+}
+
+/* Vuestic Admin Card & Container Utilities */
+.va-card,
+.mimo-card {
+  background-color: var(--va-background-secondary, #FFFFFF);
+  border-radius: var(--va-radius-lg, 12px);
+  border: 1px solid var(--va-background-border, #E2E8F0);
+  box-shadow: var(--va-shadow, 0 1px 3px 0 rgba(0, 0, 0, 0.06));
+  padding: 20px;
+  transition: box-shadow 0.2s ease;
+
+  &:hover {
+    box-shadow: var(--va-shadow-md, 0 4px 6px -1px rgba(0, 0, 0, 0.07));
+  }
+}
+
+.page-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--va-text-primary, #1E293B);
+  line-height: 1.3;
+  letter-spacing: -0.3px;
+}
+
+.page-subtitle {
+  font-size: 13px;
+  color: var(--va-text-secondary, #64748B);
+  margin-top: 4px;
+}
+
+/* Modern Status Badges */
+.va-badge,
+.mimo-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 10px;
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: 9999px;
+  line-height: 1.2;
+
+  &.badge-success {
+    background-color: rgba(22, 163, 74, 0.1);
+    color: #16A34A;
+  }
+
+  &.badge-danger {
+    background-color: rgba(239, 68, 68, 0.1);
+    color: #EF4444;
+  }
+
+  &.badge-warning {
+    background-color: rgba(245, 158, 11, 0.12);
+    color: #D97706;
+  }
+
+  &.badge-info {
+    background-color: rgba(2, 132, 199, 0.1);
+    color: #0284C7;
+  }
+
+  &.badge-neutral {
+    background-color: #F1F5F9;
+    color: #475569;
+  }
 }
