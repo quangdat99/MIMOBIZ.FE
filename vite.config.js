@@ -30,6 +30,7 @@ export default defineConfig({
     cssMinify: 'esbuild'
   },
   server: {
-    port: 8080
+    port: 8080,
+    host: true
   }
 })
